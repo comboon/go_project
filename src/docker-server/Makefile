@@ -13,5 +13,5 @@ push: image
 	docker tag httpserver:${tag} registry.cn-chengdu.aliyuncs.com/golang-project1/httpserver:${tag}
 	docker push registry.cn-chengdu.aliyuncs.com/golang-project1/httpserver:${tag}
 rundocker: push
-	docker run --name=http-server -d registry.cn-chengdu.aliyuncs.com/golang-project1/httpserver:${tag}
+	docker run --rm --name=http-server -d -p 8080:8080 registry.cn-chengdu.aliyuncs.com/golang-project1/httpserver:${tag}
 	
